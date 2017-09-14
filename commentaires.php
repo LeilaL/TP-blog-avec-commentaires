@@ -40,16 +40,16 @@ $reponse->execute([$id_num]);
  $coms->execute([$id_num]);
 
 
-while ($show_coms = $coms->fetch())
+while ($show_comments = $coms->fetch())
 
        {
          ?>
 
-          <p><strong><?php echo $show_coms['auteur'];?></strong> <?php echo $show_coms['date_commentaire'];?></p>
-          <p><?php echo $show_coms['commentaire'];?></p>
+          <p><strong><?php echo $show_comments['auteur'];?></strong> <?php echo $show_comments['date_commentaire'];?></p>
+          <p><?php echo $show_comments['commentaire'];?></p>
 <?php
        }
 
-       $reponse->closeCursor(); // Termine le traitement de la requête
+       $reponse->closeCursor(); 
       //  header('Location: index.php');
 ?>
