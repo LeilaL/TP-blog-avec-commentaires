@@ -43,7 +43,7 @@
 
           <div class="news">
 <h3><?php echo $donnees['titre'];?> <?php echo $donnees['date_creation'];?></h3>
-<p><?php echo $donnees['contenu']; ?> <a href="commentaires.php?identif=<?php echo $donnees['id'];?>">Commentaires</a></p>
+<p><?php echo $donnees['contenu']; ?> <a href="commentaires.php?identificateur=<?php echo $donnees['id'];?>">Commentaires</a></p>
 
           </div>
 
