@@ -19,6 +19,36 @@
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
+  <?php    try
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=TP blog;charset=utf8', 'root', 'leilalababsa', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+
+    catch(Exception $e)
+    {
+            die('Erreur : '.$e->getMessage());
+    }
+
+  $reponse = $bdd->query('SELECT titre, contenu, date_creation FROM billets');
+
+         while ($donnees = $reponse->fetch())
+
+         {
+             ?>
+
+<h1>TP Blog</h1>
+          <div class="news">
+<h3><?php echo $donnees['titre']; $donnees['date_creation']?></h3>
+<p><?php echo $donnees['contenu']; ?></p>
+          </div>
+
+<?php
+         }
+
+
+         $reponse->closeCursor(); // Termine le traitement de la requête
+  ?>
+
 
 
 
