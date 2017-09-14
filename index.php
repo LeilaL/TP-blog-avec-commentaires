@@ -20,16 +20,16 @@
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <?php    try
-    {
+  <?php
+  try {
         $bdd = new PDO('mysql:host=localhost;dbname=TP blog;charset=utf8', 'root', 'leilalababsa', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
 
-    catch(Exception $e)
-    {
+    catch(Exception $e)  {
             die('Erreur : '.$e->getMessage());
     }
 
+// DATE_FORMAT(date_creation, '%d/%m/%Y %Hh%imin%ss') AS date_creation
   $reponse = $bdd->query('SELECT titre, contenu, date_creation FROM billets ORDER BY ID DESC LIMIT 0,5');
 ?>
 
@@ -42,8 +42,9 @@
              ?>
 
           <div class="news">
-<h3><?php echo $donnees['titre']; $donnees['date_creation']?></h3>
-<p><?php echo $donnees['contenu']; ?></p>
+<h3><?php echo $donnees['titre'];?> <?php echo $donnees['date_creation'];?></h3>
+<p><?php echo $donnees['contenu']; ?> <a href="commentaires.php">Commentaires</a></p>
+
           </div>
 
 <?php
