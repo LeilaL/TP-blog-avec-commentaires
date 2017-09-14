@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -29,14 +30,17 @@
             die('Erreur : '.$e->getMessage());
     }
 
-  $reponse = $bdd->query('SELECT titre, contenu, date_creation FROM billets');
+  $reponse = $bdd->query('SELECT titre, contenu, date_creation FROM billets ORDER BY ID DESC LIMIT 0,5');
+?>
 
+
+  <h1>TP Blog</h1>
+<?php
          while ($donnees = $reponse->fetch())
 
          {
              ?>
 
-<h1>TP Blog</h1>
           <div class="news">
 <h3><?php echo $donnees['titre']; $donnees['date_creation']?></h3>
 <p><?php echo $donnees['contenu']; ?></p>
