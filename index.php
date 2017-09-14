@@ -30,7 +30,7 @@
     }
 
 // DATE_FORMAT(date_creation, '%d/%m/%Y %Hh%imin%ss') AS date_creation
-  $reponse = $bdd->query('SELECT titre, contenu, date_creation FROM billets ORDER BY ID DESC LIMIT 0,5');
+  $reponse = $bdd->query('SELECT id, titre, contenu, date_creation FROM billets');
 ?>
 
 
@@ -43,7 +43,7 @@
 
           <div class="news">
 <h3><?php echo $donnees['titre'];?> <?php echo $donnees['date_creation'];?></h3>
-<p><?php echo $donnees['contenu']; ?> <a href="commentaires.php">Commentaires</a></p>
+<p><?php echo $donnees['contenu']; ?> <a href="commentaires.php?identif=<?php echo $donnees['id'];?>">Commentaires</a></p>
 
           </div>
 
